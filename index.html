@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function display()
+        {
+            let fn=String(document.getElementById('firstname').value);
+            let ln=String(document.getElementById('lastname').value);
+            let name=fn+" "+ln;
+            let email=String(document.getElementById('email').value);
+            var no=Number(document.getElementById('phnno').value);
+            let phnno=no.toString();
+            let contact=email+" | "+phnno;
+            let gender;
+            if (document.getElementById('male').checked) {
+                    gender = document.getElementById('male').value;
+                }
+            else if (document.getElementById('female').checked) {
+                    gender = document.getElementById('female').value;
+                }
+            else if (document.getElementById('others').checked) {
+                    gender = document.getElementById('others').value;
+            }
+            let gend="Gender: "+gender;
+            var month=Number(document.getElementById('month').value);
+            var day=Number(document.getElementById('day').value);
+            var year=Number(document.getElementById('year').value);
+            let mo = month.toString();
+            let da = day.toString();
+            let yr = year.toString();
+            let dob="DOB: "+mo+"/"+da+"/"+yr;
+            let adrs=String(document.getElementById('address').value);
+            let ct=String(document.getElementById('city').value);
+            var pn=Number(document.getElementById('areapin').value);
+            let st=String(document.getElementById('state').value);
+            let pin=pn.toString();
+            let address="Address:  "+adrs +", "+pin+", "+ct+", "+st+", India.";
+            let spcl=String(document.getElementById('special').value);
+            let Specialization="Specialization : "+spcl;
+            let abtme=String(document.getElementById('aboutme').value);
+
+            document.getElementById('Name').innerText=name;
+            document.getElementById('Contact').innerText=contact;
+            document.getElementById('AboutMe').innerText=abtme;
+            document.getElementById('Specialization').innerText=Specialization;
+            document.getElementById('DOB').innerText=dob;
+            document.getElementById('Gender').innerText=gend;
+            document.getElementById('Address').innerText=address;
+            
+        }
+
+    </script>
+</head>
+<body>
+    <p>Student Registration </p>
+    <form name="myform" method="post">
+        Firstname:  <input type="text" id="firstname"><br><br>
+        Lastname:   <input type="text" id="lastname"><br><br>
+        Email:      <input id="email" type="text" placeholder="ex- myname@gmail.com"><br><br>
+        Mobile no:  <input id="phnno" type="text" placeholder="only ten digits are allowed"><br><br>
+        Gender:<br>
+                    <input type="radio" id="male" value="male" name="gen">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" value="female" name="gen">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="others" value="others" name="gen">
+                    <label for="others">Others</label><br><br>
+
+        Date of Birth:<input id="month" type="text" placeholder="Month">-<input id="day" type="text" placeholder="Day">-<input id="year" type="text" placeholder="Year"><br><br>
+        Address:      <textarea id="address"></textarea><br><br>
+        City:         <input type="text" id="city"><br><br>
+        Area PIN:     <input type="text" id="areapin"><br><br>
+        State:        <input type="text" id="state"><br><br>
+        Specialization:<input type="text" id="special"> <br><br>
+        About Me:      <textarea id="aboutme"></textarea><br><br>
+        <center>
+        <input type="button" value="Register" class="reg" onclick="display();">
+    </center>
+    </form>
+    <br>
+    <center>
+       <div id="display">
+    <div id="Name"></div>
+    <span id="Contact"></span><br><br>
+    <hr>
+    <div id="AboutMe"></div><br>
+    <span id="Specialization"></span><br>
+    <br>
+    <span id="DOB"></span><br>
+    <span id="Gender"></span>
+   <div id="Address"></div>
+       </div>
+</center>
+</body>
+</html>
